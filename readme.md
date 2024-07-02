@@ -14,26 +14,36 @@
 1. Set up repo dependencies.
 
     ```bash
+    composer update
     yarn setup:tools
     ```
 
-1. Build the assets. If there's anything that needs setting up.
+2. Build the assets. If there's anything that needs setting up.
 
     ```bash
     yarn build
     ```
 
-1. Start the local environment.
+3. Get the latest WP Rocket sources
+
+    ```bash
+    yarn update:wprocket
+    ```
+
+4. Start the local environment.
 
     ```bash
     yarn wp-env start
     ```
 
-1. Run the setup script.
+5. Run the setup script.
 
     ```bash
     yarn setup
     ```
+
+Note: if this is the first activation of the wp-env, there is a conflict between plugins: "Posts 2 posts" and WP Parser, preventing the later to activate.
+Manually log into the admin panel, deactivate "Posts 2 Posts" manually, activate WP Parser and then re-activate "Posts 2 Posts".
 
 1. Visit site at [localhost:8888](http://localhost:8888).
 

@@ -1,0 +1,1 @@
+wp parser create wp-content/wp-rocket/inc/ --user=admin
