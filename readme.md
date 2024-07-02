@@ -44,6 +44,7 @@
 
 Note: if this is the first activation of the wp-env, there is a conflict between plugins: "Posts 2 posts" and WP Parser, preventing the later to activate.
 Manually log into the admin panel, deactivate "Posts 2 Posts" manually, activate WP Parser and then re-activate "Posts 2 Posts".
+Issue tracked here: https://github.com/WordPress/wporg-developer/issues/523
 
 1. Visit site at [localhost:8888](http://localhost:8888).
 
