@@ -5,7 +5,8 @@
 ### Prerequisites
 
 * Docker
-* Node/npm
+* PHP >= 7.4.0
+* Node/npm >= 18
 * Yarn
 * Composer
 * SVN
