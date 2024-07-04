@@ -8,13 +8,21 @@
 * Node/npm
 * Yarn
 * Composer
+* SVN
 
 ### Setup
+
+0. Update composer dependencies
+
+    ```bash
+    composer update
+    ```
+
+    If you never set up a Github token for composer, you might get a rate-limit error. In this case, just go to the link provided in the error report to generate a GitHub token (no specific permissions needed) and copy-paste the obtained token into the terminal prompt.
 
 1. Set up repo dependencies.
 
     ```bash
-    composer update
     yarn setup:tools
     ```
 
@@ -35,6 +43,15 @@
     ```bash
     yarn wp-env start
     ```
+
+    This step should take a couple of minutes to download WordPress, then install and configure it. If it does not perform all those actions, you can retry with:
+
+    ```bash
+    yarn wp-env destroy
+    yarn wp-env start
+    ```
+
+    If this step worked properly, you should be able to access a new WordPress website at [localhost:8888](http://localhost:8888). The website should be ready to use (ie. WordPress already installed).
 
 5. Run the setup script.
 
