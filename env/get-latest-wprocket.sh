@@ -1,0 +1,2 @@
+LATEST_TAG=$(curl -s https://api.github.com/repos/wp-media/wp-rocket/releases/latest | grep 'tag_name' | cut -d\" -f4)
+wp plugin install https://github.com/wp-media/wp-rocket/archive/refs/tags/$LATEST_TAG.zip --force

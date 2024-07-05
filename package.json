@@ -13,16 +13,17 @@
 	},
 	"scripts": {
 		"setup:tools": "yarn && composer install && TEXTDOMAIN=wporg composer exec update-configs && composer --working-dir=./source/wp-content/plugins/phpdoc-parser install",
-		"setup": "yarn setup:wp && yarn parse",
+		"setup": "yarn setup:wp",
 		"setup:wp": "wp-env run cli bash env/setup.sh",
-		"parse": "wp-env run cli bash env/parse-wp-rocket.sh",
+		"parse": "yarn update:wprocket && wp-env run cli bash env/parse-wp-rocket.sh",
 		"update:tools": "composer update && TEXTDOMAIN=wporg composer exec update-configs && composer --working-dir=./source/wp-content/plugins/phpdoc-parser update",
 		"wp-env": "wp-env",
 		"build": "yarn workspaces run build",
 		"build:theme": "yarn workspace wporg-developer-2023 build",
 		"start:theme": "yarn workspace wporg-developer-2023 start",
 		"lint:css": "wp-scripts lint-style",
-		"update:wprocket": "bash get-latest-wprocket.sh"
+		"update:wprocket": "wp-env run cli bash env/get-latest-wprocket.sh",
+		"parse:reset": "wp-env run cli bash env/reset.sh"
 	},
 	"workspaces": [
 		"source/wp-content/themes/wporg-developer-2023"
