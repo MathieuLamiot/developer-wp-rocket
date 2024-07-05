@@ -15,5 +15,10 @@ wp post create --post_type=page --post_title=Dashicons --post_status=publish --p
 wp option update page_on_front `wp post list --post_type=page --name=home --format=ids`
 wp option update show_on_front page
 
-# Run all cron tasks (Including Handbook imports from GitHub)
+# Run all cron tasks (Including Handbook imports from GitHub).
 wp cron event run --all
+
+# Avoid conflict between plugins (@see https://github.com/WordPress/wporg-developer/issues/523).
+wp plugin deactivate posts-to-posts
+wp plugin activate phpdoc-parser
+wp plugin activate posts-to-posts

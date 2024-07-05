@@ -4,12 +4,16 @@
 
 ### Prerequisites
 
+All commands below need to be executed as non-root user.
+
 * Docker
-* PHP >= 7.4.0
+* PHP >= 7.4.0 with extensions: xml, mysql, mbstring, curl, zip, intl
 * Node/npm >= 18
 * Yarn
 * Composer
 * SVN
+
+[How to install the prerequisites](#a-nameinstall-prerequisitesa-install-prerequisites)
 
 ### Setup
 
@@ -33,13 +37,8 @@
     yarn build
     ```
 
-3. Get the latest WP Rocket sources
 
-    ```bash
-    yarn update:wprocket
-    ```
-
-4. Start the local environment.
+3. Start the local environment.
 
     ```bash
     yarn wp-env start
@@ -54,7 +53,7 @@
 
     If this step worked properly, you should be able to access a new WordPress website at [localhost:8888](http://localhost:8888). The website should be ready to use (ie. WordPress already installed).
 
-5. Run the setup script.
+4. Run the setup script (do it only once).
 
     ```bash
     yarn setup
@@ -66,7 +65,27 @@ Issue tracked here: https://github.com/WordPress/wporg-developer/issues/523
 
 1. Visit site at [localhost:8888](http://localhost:8888).
 
-1. Log in with username `admin` and password `password`.
+2. Log in with username `admin` and password `password`.
+
+### WP Rocket
+
+- Update WP Rocket and Parse WP Rocket
+
+    ```bash
+    yarn parse
+    ```
+
+- Update WP Rocket
+
+    ```bash
+    yarn update:wprocket
+    ```
+
+- Delete all developers docs (posts/terms) created.
+
+    ```bash
+    yarn parse:reset
+    ```
 
 ### Environment management
 
@@ -118,3 +137,73 @@ These must be run in the project's root folder, _not_ in theme/plugin subfolders
 
 * Build assets once: `yarn build:theme`
 * Watch assets and build on changes: `yarn start:theme`
+
+### <a name="install-prerequisites"></a> Install prerequisites
+
+#### Yarn
+
+```bash
+curl -o- -L https://yarnpkg.com/install.sh | bash
+yarn --version
+```
+
+#### Subversion
+
+```bash
+apt install subversion
+```
+
+#### NVM
+
+Install NVM
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+#### Node
+Install Node 18
+
+```bash
+nvm install 18
+node -v
+```
+
+#### PHP
+Check PHP version and switch PHP version to PHP7.4 if it is already installed:
+
+```bash
+php -v
+sudo update-alternatives --config php
+```
+
+Install PHP 7.4 and required/basic extensions:
+
+```bash
+apt install php7.4 php7.4-cli php7.4-xml php7.4-mysql php7.4-mbstring php7.4-curl php7.4-zip php7.4-intl php7.4-gd php7.4-bcmath php7.4-imagick
+```
+
+Switch PHP version to PHP7.4:
+```bash
+sudo update-alternatives --set php /usr/bin/php7.4
+```
+### FAQ
+
+#### FAQ Issue with docker Could not connect to Docker
+```bash
+docker ps
+```
+
+Getting permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker
+
+Solution:
+```bash
+unset DOCKER_HOST
+sudo usermod -aG docker $USER
+```
+Then close and reopen terminal:
+```bash
+docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+```
+
