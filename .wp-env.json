@@ -18,6 +18,7 @@
 		"./source/wp-content/plugins/jetpack"
 	],
 	"themes": [
+		"./source/wp-content/themes/wpr-developer-2024",
 		"./source/wp-content/themes/wporg-developer-2023",
 		"./source/wp-content/themes/wporg-parent-2021"
 	],
@@ -27,6 +28,6 @@
 		"wp-content/mu-plugins": "./source/wp-content/mu-plugins",
 		"wp-content/mu-plugins/0-sandbox.php": "./env/0-sandbox.php",
 		"wp-content/plugins/phpdoc-parser": "./source/wp-content/plugins/phpdoc-parser",
-		"wp-content/wp-rocket": "./source/wp-content/wp-rocket"
+		"wp-content/plugins/wp-rocket": "./source/wp-content/plugins/wp-rocket"
 	}
 }

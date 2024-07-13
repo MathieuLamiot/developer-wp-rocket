@@ -1,0 +1,32 @@
+.wp-block-wporg-code-reference-title {
+	color: var(--wp--preset--color--syntax-green);
+
+	.hook-func,
+	.keyword {
+		color: var(--wp--preset--color--syntax-grey);
+	}
+
+	.arg-type {
+		color: var(--wp--preset--color--syntax-red);
+	}
+
+	.arg-name {
+		color: var(--wp--preset--color--syntax-blue);
+	}
+
+	.arg-default {
+		color: var(--wp--preset--color--syntax-black);
+	}
+
+	a,
+	.wp-block-post-content & a {
+		text-decoration: none;
+		color: inherit;
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			border-bottom: 1px dotted var(--wp--preset--color--blueberry-1);
+		}
+	}
+}
